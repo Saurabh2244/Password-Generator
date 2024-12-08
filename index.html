@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+
+    <!-- add fav-icon -->
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+
+    <!-- attached CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- main continer -->
+        <div class="main-container">
+            <!-- heading -->
+            <h1>Password Generator</h1>
+
+            <!-- Password Display -->
+            <div class="passDisplay-container">
+                <input type="text" readonly placeholder="PASSWORD" class="display" data-passwordDisplay>
+                <button data-copyBtn>
+                    <span data-copyMsg>copied</span>
+                    <img src="images/copy.svg" loading="lazy" height="23" width="23">
+                </button>
+            </div>
+
+            <!-- input container -->
+            <div class="input-container">
+                <!-- length container -->
+                <div class="length-container">
+                    <p>Password Length</p>
+                    <p data-passLength></p>
+                </div>
+
+                <!-- slider -->
+                <input type="range" class="slider" min="1" max="20" step="1" data-lengthSlider>
+
+                <!-- checkboxes -->
+                <div class="check">
+                    <input type="checkbox" id="upperCase" checked>
+                    <label for="upperCase">Include Uppercase Letters</label>
+                </div>
+
+                <div class="check">
+                    <input type="checkbox" id="lowerCase">
+                    <label for="lowerCase">Include Lowercase Letters</label>
+                </div>
+
+                <div class="check">
+                    <input type="checkbox" id="numbers">
+                    <label for="numbers">Include Numbers</label>
+                </div>
+
+                <div class="check">
+                    <input type="checkbox" id="symbols">
+                    <label for="symbols">Include Symbols</label>
+                </div>
+
+                <!-- strength container -->
+                <div class="strength-container">
+                    <p>Strength</p>
+                    <div data-indicator></div>
+                </div>
+
+                <!-- generate password button -->
+                <button class="generateBtn">Generate Password</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- font-awesome icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/js/all.min.js"
+        crossorigin="anonymous"></script>
+
+    <!-- attached JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>

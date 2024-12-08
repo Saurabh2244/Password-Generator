@@ -1,0 +1,310 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "League Spartan", sans-serif;
+}
+
+:root {
+    --dk-violet: hsl(268, 75%, 9%);
+    --lt-violet: hsl(268, 47%, 21%);
+    --lt-violet2: hsl(281, 89%, 26%);
+    --vb-violet: hsl(285, 91%, 52%);
+    --vb-violet2: hsl(290, 70%, 36%);
+
+    --vb-yellow: hsl(52, 100%, 62%);
+
+    --pl-white: hsl(0, 0%, 100%);
+
+    --vb-cyan: hsl(176, 100%, 44%);
+    --vb-cyan2: hsl(177, 92%, 70%);
+
+    --dk-text: hsl(198, 20%, 13%);
+}
+
+/* wrapper */
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: linear-gradient(231deg, rgba(22, 6, 40, 1) 0%, rgba(52, 28, 79, 1) 50%, rgba(88, 7, 125, 1) 100%);
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    display: grid;
+    place-items: center;
+}
+
+/* main container */
+.main-container {
+    zoom: 80%;
+    width: 90%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+}
+
+/* heading */
+.main-container h1 {
+    color: var(--pl-white);
+    text-align: center;
+    opacity: 0.75;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+/* Password Display container */
+.passDisplay-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    background-color: var(--dk-violet);
+    border-radius: 1rem;
+    border-bottom: 0.35rem solid var(--lt-violet2);
+    margin: 1rem 0;
+    padding-top: 0.35rem;
+}
+
+/* password display */
+.display {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--vb-yellow);
+    padding: 1.15rem 1rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    line-height: 30px;
+    padding-right: 3.25rem;
+}
+
+/* placeholder */
+.display::placeholder {
+    position: absolute;
+    top: 50%;
+    left: 1.5rem;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    line-height: 30px;
+    color: var(--vb-yellow);
+    opacity: 0.65;
+    text-transform: uppercase;
+}
+
+/* copy button */
+.passDisplay-container button {
+    position: absolute;
+    background: transparent;
+    border: none;
+    outline: none;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* copy msg text */
+[data-copyMsg] {
+    background-color: var(--vb-violet2);
+    color: var(--vb-yellow);
+    font-size: 1.25rem;
+    text-transform: capitalize;
+    padding: 5px 10px;
+    border-radius: 1rem;
+    position: absolute;
+    top: -35px;
+    left: -25px;
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: bottom;
+    transition: all 250ms ease-in-out;
+}
+
+/* active class for copy msg button */
+[data-copyMsg].active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* input-container */
+.input-container {
+    width: 100%;
+    background-color: var(--dk-violet);
+    color: var(--pl-white);
+    border-radius: 1rem;
+    padding: 2rem;
+    border-bottom: 0.35rem solid var(--lt-violet2);
+}
+
+/* length container */
+.length-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* length container first paragrph */
+.length-container p:nth-child(1) {
+    color: var(--pl-white);
+    font-size: 1.5rem;
+}
+
+/* length container second paragraph */
+.length-container p:nth-child(2) {
+    color: var(--vb-yellow);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* slider */
+.slider {
+    appearance: none;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    background-color: var(--lt-violet);
+    border-radius: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    height: 0.75rem;
+    background-image: linear-gradient(var(--vb-violet), var(--vb-violet));
+}
+
+/* access circle of slider but it will not support in firefox */
+.slider::-webkit-slider-thumb {
+    position: relative;
+    z-index: 1;
+    appearance: none;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-color: var(--vb-yellow);
+    cursor: pointer;
+    margin-top: -3px;
+    transition: all 100ms ease-in;
+    box-shadow: 0px 0px 20px 0px rgba(255, 229, 61, 0.5);
+}
+
+/* access circle of slider and it will be support in firefox */
+.slider::-moz-range-thumb {
+    position: relative;
+    z-index: 1;
+    appearance: none;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-color: var(--vb-yellow);
+    cursor: pointer;
+    margin-top: -3px;
+    transition: all 100ms ease-in;
+    box-shadow: 0px 0px 20px 0px rgba(255, 229, 61, 0.5);
+}
+
+/* hover effect on slider ball except firefox */
+.slider::-webkit-slider-thumb:hover {
+    outline: 2px solid var(--vb-yellow);
+    background-color: var(--dk-violet);
+    box-shadow: 0px 0px 25px 5px rgba(255, 229, 61, 0.8);
+}
+
+/* hover effect on slider ball for firefox*/
+.slider::-moz-range-thumb:hover {
+    outline: 2px solid var(--vb-yellow);
+    background-color: var(--dk-violet);
+    box-shadow: 0px 0px 25px 5px rgba(255, 229, 61, 0.8);
+}
+
+/* focus on slider */
+/* .slider:focus {
+    outline: 3px solid var(--vb-yellow);
+} */
+
+/* checkbox container */
+.check {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    gap: 0 1rem;
+}
+
+/* checkbox square */
+.check input {
+    position: relative;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    border: 1px solid var(--vb-cyan);
+    border-radius: 0.35rem;
+    cursor: pointer;
+}
+
+/* tick ki properties */
+.check input:checked {
+    background-color: var(--vb-cyan);
+}
+
+/* add tick symbol */
+.check input:checked::before {
+    content: "✔";
+    position: absolute;
+    color: var(--dk-text);
+    font-size: 1.05rem;
+    font-weight: 600;
+    left: 50%;
+    top: -3.5px;
+    transform: translateX(-50%);
+}
+
+/* label */
+.check label {
+    color: var(--pl-white);
+    font-size: 1.25rem;
+    letter-spacing: 0.75px;
+}
+
+/* strength-container */
+.strength-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+/* strength text */
+.strength-container p {
+    color: var(--pl-white);
+    font-size: 1.5rem;
+}
+
+/* strngth indicator */
+.strength-container div {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+}
+
+/* generate password Button */
+.generateBtn {
+    width: 100%;
+    padding: 1rem 0;
+    background-color: var(--vb-violet);
+    color: var(--vb-yellow);
+    font-weight: 600;
+    font-size: 1.25rem;
+    text-align: center;
+    border: none;
+    outline: none;
+    border-radius: 0.75rem;
+    border-bottom: 0.35rem solid var(--vb-yellow);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
